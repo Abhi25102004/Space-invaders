@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmr8nh3d3wpgq"]
+
+[ext_resource type="Script" path="res://Scene/ufo.gd" id="1_dofia"]
+[ext_resource type="Texture2D" uid="uid://co6viw6x1kkfj" path="res://SpaceShooter_Assets/enemyUFO.png" id="1_vfm1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yq1y"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ls180"]
+radius = 46.0435
+
+[node name="Ufo" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_dofia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_vfm1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1yq1y")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ls180")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Marker2D5" type="Marker2D" parent="Markers"]
+position = Vector2(32, 51)
+
+[node name="Marker2D" type="Marker2D" parent="Markers"]
+position = Vector2(0, 63)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers"]
+position = Vector2(-32, 51)
+
+[connection signal="body_entered" from="Area2D" to="." method="die"]
+[connection signal="timeout" from="Timer" to="." method="enemy_shoot"]

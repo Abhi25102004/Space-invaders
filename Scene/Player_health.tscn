@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0e12qo73lj8j"]
+
+[ext_resource type="Script" path="res://Scene/Player_health.gd" id="1_b33ci"]
+[ext_resource type="Texture2D" uid="uid://du6w43640uo6e" path="res://SpaceShooter_Assets/life.png" id="1_j23uv"]
+
+[node name="Player_health" type="CharacterBody2D"]
+collision_layer = 32
+script = ExtResource("1_b33ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_j23uv")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, -14, 5, -14, 5, -12, 6, -12, 6, -6, 7, -6, 7, -5, 8, -5, 9, -5, 9, -4, 10, -4, 10, -3, 11, -3, 11, -5, 17, -5, 17, -4, 18, -4, 18, 7, 17, 7, 17, 10, 15, 10, 15, 11, 14, 11, 13, 11, 13, 10, 10, 10, 10, 11, 6, 11, 6, 13, 5, 13, 5, 14, -5, 14, -5, 13, -6, 13, -6, 11, -10, 11, -10, 10, -12, 10, -12, 11, -15, 11, -15, 10, -17, 10, -17, 7, -18, 7, -18, -4, -17, -4, -17, -5, -13, -5, -13, -4, -11, -4, -11, -3, -10, -3, -10, -4, -9, -4, -9, -5, -7, -5, -7, -6, -6, -6, -6, -11, -5, -11)
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

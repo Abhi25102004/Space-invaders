@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg3powbhfvpub"]
+
+[ext_resource type="Script" path="res://Scene/game_scene.gd" id="1_u6ngk"]
+[ext_resource type="Texture2D" uid="uid://cpr10c6v4dtp4" path="res://SpaceShooter_Assets/backgroundColor.png" id="2_54cvp"]
+[ext_resource type="PackedScene" uid="uid://bnyn3h8l1xpkw" path="res://Scene/player.tscn" id="2_pciy8"]
+[ext_resource type="PackedScene" uid="uid://bmr8nh3d3wpgq" path="res://Scene/ufo.tscn" id="4_wpdk6"]
+[ext_resource type="FontFile" uid="uid://jl1ksucp5y1r" path="res://font/Kenney Future.ttf" id="5_kpwua"]
+
+[node name="Game_scene" type="Node2D"]
+script = ExtResource("1_u6ngk")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(7.66667, 4.32)
+texture = ExtResource("2_54cvp")
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_pciy8")]
+position = Vector2(576, 593)
+
+[node name="Ufo" parent="." instance=ExtResource("4_wpdk6")]
+position = Vector2(60, 80)
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 538.0
+offset_right = 611.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(36, 12)
+theme_override_fonts/font = ExtResource("5_kpwua")
+theme_override_font_sizes/font_size = 22
+text = "SCORE : 0"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c28hj00v1f6jc"]
+
+[ext_resource type="Script" path="res://Scene/enemy_laser.gd" id="1_v148g"]
+[ext_resource type="Texture2D" uid="uid://doa0wqpo8oal8" path="res://SpaceShooter_Assets/laserGreen.png" id="2_k2l4a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhnxs"]
+radius = 5.0
+height = 34.0
+
+[node name="Enemy_laser" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_v148g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_k2l4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bhnxs")
