@@ -54,3 +54,7 @@ func add_health_object():
 
 func health_boost_true():
 	health_boost = true
+
+
+func _on_quite_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scene/display.tscn")

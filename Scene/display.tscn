@@ -11,7 +11,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16oyn"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi72o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia2p5"]
 
 [node name="Display" type="Node2D"]
 script = ExtResource("1_437tr")
@@ -77,7 +77,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_dl5dq")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_16oyn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_gi72o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ia2p5")
 text = "New Game"
 
 [connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]

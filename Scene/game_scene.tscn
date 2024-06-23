@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg3powbhfvpub"]
+[gd_scene load_steps=9 format=3 uid="uid://bg3powbhfvpub"]
 
 [ext_resource type="Script" path="res://Scene/game_scene.gd" id="1_u6ngk"]
 [ext_resource type="Texture2D" uid="uid://cpr10c6v4dtp4" path="res://SpaceShooter_Assets/backgroundColor.png" id="2_54cvp"]
 [ext_resource type="PackedScene" uid="uid://bnyn3h8l1xpkw" path="res://Scene/player.tscn" id="2_pciy8"]
 [ext_resource type="PackedScene" uid="uid://bmr8nh3d3wpgq" path="res://Scene/ufo.tscn" id="4_wpdk6"]
 [ext_resource type="FontFile" uid="uid://jl1ksucp5y1r" path="res://font/Kenney Future.ttf" id="5_kpwua"]
+[ext_resource type="Texture2D" uid="uid://bv1n24qinijxh" path="res://SpaceShooter_Assets/UI_Flat_Frame_01_Horizontal.png" id="6_owghb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfn4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gb67"]
 
 [node name="Game_scene" type="Node2D"]
 script = ExtResource("1_u6ngk")
@@ -35,3 +40,30 @@ pivot_offset = Vector2(36, 12)
 theme_override_fonts/font = ExtResource("5_kpwua")
 theme_override_font_sizes/font_size = 22
 text = "SCORE : 0"
+
+[node name="Quite_button" type="Node2D" parent="."]
+position = Vector2(1118, 23)
+scale = Vector2(2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Quite_button"]
+texture_filter = 1
+position = Vector2(1.25, 2.5)
+scale = Vector2(0.286458, 1.46875)
+texture = ExtResource("6_owghb")
+
+[node name="Quite" type="Button" parent="Quite_button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -14.0
+offset_right = 10.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rdfn4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0gb67")
+text = "X"
+
+[connection signal="pressed" from="Quite_button/Quite" to="." method="_on_quite_pressed"]
