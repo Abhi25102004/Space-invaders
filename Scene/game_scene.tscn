@@ -22,7 +22,7 @@ texture = ExtResource("2_54cvp")
 [node name="Stars" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_pciy8")]
-position = Vector2(576, 593)
+position = Vector2(576, 580)
 
 [node name="Ufo" parent="." instance=ExtResource("4_wpdk6")]
 position = Vector2(60, 80)

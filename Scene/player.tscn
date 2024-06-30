@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnyn3h8l1xpkw"]
+[gd_scene load_steps=9 format=3 uid="uid://bnyn3h8l1xpkw"]
 
 [ext_resource type="Script" path="res://Scene/player.gd" id="1_142c2"]
 [ext_resource type="Texture2D" uid="uid://cenrsqdxhuelw" path="res://SpaceShooter_Assets/player_sheet.png" id="2_ukvue"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1vy2b5237f3f" path="res://SpaceShooter_Assets/UI_Flat_Fillbar_02_Hollow.png" id="4_wm8df"]
 [ext_resource type="Texture2D" uid="uid://7afdebggug7j" path="res://SpaceShooter_Assets/UI_Flat_Filler_01.png" id="5_unkr7"]
 [ext_resource type="Texture2D" uid="uid://cdyfwy7yicfpu" path="res://SpaceShooter_Assets/shield.png" id="5_w4vun"]
+[ext_resource type="AudioStream" uid="uid://b4oxkdmbe66gf" path="res://audio/laser.wav" id="7_qc55q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yq1y"]
 radius = 2.23607
@@ -42,12 +43,12 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = 30.0
-offset_right = 16.0
-offset_bottom = 62.0
+offset_left = -32.0
+offset_top = 19.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 value = 100.0
 texture_under = ExtResource("3_81vj0")
 texture_over = ExtResource("4_wm8df")
@@ -60,6 +61,9 @@ texture = ExtResource("5_w4vun")
 
 [node name="Shield_timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="laser_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qc55q")
 
 [connection signal="body_entered" from="Area2D" to="." method="decrease_health"]
 [connection signal="timeout" from="Shooting_timer" to="." method="able_to_shoot_laser"]

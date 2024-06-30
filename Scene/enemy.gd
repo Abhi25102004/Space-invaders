@@ -6,6 +6,8 @@ var able_shoot : bool = false
 var laser_instance : PackedScene = preload("res://Scene/enemy_laser.tscn")
 @onready var timer: Timer = $Timer
 @onready var marker_2d: Marker2D = $Marker2D
+@export var maximum : int = 1092
+@export var minimum : int = 60
 signal died
 
 func _ready() -> void:
@@ -19,9 +21,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	# bounds
-	if global_position.x <= 60:
+	if global_position.x <= minimum:
 		direction = 1
-	elif global_position.x >= 1092:
+	elif global_position.x >= maximum:
 		direction = -1
 	
 	# shooting laser

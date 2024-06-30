@@ -24,15 +24,32 @@ func _process(_delta: float) -> void:
 	# check to spawn enemys
 	if !(enemy_in_scene):
 		spawn_number += 1
-		if spawn_number == 11:
-			get_tree().change_scene_to_file("res://Scene/win_screen.tscn")
 		add_enemy(spawn_number)
 
 func add_enemy(spawn : int):
-	# spawning enemys
+	var x_position : int  = 0
+	var y_position : int = 0
+	var iter : int = 0
+	var total_arr : Array = []
+	var total : int 
+	if (spawn/9):
+		for j in range(spawn/9):
+			total_arr.append(9)
+	if (spawn % 9):
+		total_arr.append(spawn % 9)
+	total = total_arr.pop_front()
 	for i in range(spawn):
+		if !(i % 9) and i!=0:
+			x_position = 0
+			y_position += 1
+			iter = 0
+			total = total_arr.pop_front()
 		var enemy_inst : CharacterBody2D = enemy.instantiate()
-		enemy_inst.position = Vector2(place.x + (100 * i),170)
+		enemy_inst.position = Vector2(place.x + (110 * x_position) , place.y + (62 * y_position))
+		x_position += 1
+		enemy_inst.minimum = 60 + (iter * 110)
+		enemy_inst.maximum = 1092 - ((total - 1 - iter) * 110)
+		iter += 1
 		add_child(enemy_inst)
 		enemy_inst.connect("died",checker)
 		enemy_in_scene += 1
@@ -40,6 +57,7 @@ func add_enemy(spawn : int):
 func checker():
 	# signal when enemy die
 	score += 10
+	Global.score = score
 	scored.text = "SCORE : " + str(score)
 	enemy_in_scene -= 1
 	

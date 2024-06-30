@@ -3,6 +3,7 @@ extends CharacterBody2D
 var direction : int = 1
 var speed : int = 300
 var able_shoot : bool = false
+var in_position : bool = false
 var damage : int = 5
 var laser_instance : PackedScene = preload("res://Scene/enemy_laser.tscn")
 @onready var timer: Timer = $Timer
@@ -25,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 		direction = -1
 	
 	# shooting laser
-	if able_shoot:
+	if able_shoot and in_position:
 		for mark in marker_2d.get_children():
 			var laser : CharacterBody2D = laser_instance.instantiate()
 			laser.position = mark.global_position
@@ -33,7 +34,12 @@ func _physics_process(_delta: float) -> void:
 			get_parent().add_child(laser)
 		timer.start()
 		able_shoot = false
-
+	
+	if global_position.x >= Global.players_global_position.x - 30 and global_position.x <= Global.players_global_position.x + 30:
+		in_position = true
+	else:
+		in_position = false
+	
 func enemy_shoot() -> void:
 	able_shoot = true
 	randomize()
