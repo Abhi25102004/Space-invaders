@@ -39,6 +39,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# die
 	if health_bar.value <= 0:
+		Global.HighScore = Global.score if Global.HighScore < Global.score else Global.HighScore
 		get_parent().get_tree().change_scene_to_file("res://Scene/death_scene.tscn")
 	
 	if health_bar.value <= 35:

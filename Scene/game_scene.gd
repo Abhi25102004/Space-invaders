@@ -75,4 +75,5 @@ func health_boost_true():
 
 
 func _on_quite_pressed() -> void:
+	Global.HighScore = Global.score if Global.HighScore < Global.score else Global.HighScore
 	get_tree().change_scene_to_file("res://Scene/display.tscn")

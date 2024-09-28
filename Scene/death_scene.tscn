@@ -39,21 +39,22 @@ text = "Game over"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 521.0
-offset_top = 150.0
-offset_right = 616.0
-offset_bottom = 173.0
+offset_left = 461.5
+offset_top = 153.0
+offset_right = 731.5
+offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_1gdbh")
-theme_override_font_sizes/font_size = 20
-text = "score : 0"
+theme_override_font_sizes/font_size = 31
+text = "     Score: 0
+High Score: 0"
 
 [node name="Decoration" type="Node2D" parent="."]
 
 [node name="Sprite2D2" type="Sprite2D" parent="Decoration"]
 texture_filter = 1
-position = Vector2(576, 227)
+position = Vector2(576, 270)
 texture = ExtResource("4_7emwc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Decoration"]
@@ -66,7 +67,7 @@ position = Vector2(576, 465)
 texture = ExtResource("6_xhhf4")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Decoration"]
-position = Vector2(598, 238)
+position = Vector2(600, 282)
 texture = ExtResource("7_hiolk")
 
 [node name="Node2D" type="Node2D" parent="."]
