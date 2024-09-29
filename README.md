@@ -21,6 +21,6 @@ Space Invader Game is a classic arcade-style game where players control a spaces
 
 ## Installation
 
-To try the Game Click on the Download Link below
+To try the Game Click on the Download Link below and Select the executable **Space.invaders.exe**
 
 [Download The Game From Here](https://github.com/Abhi25102004/Space-invaders/releases)
