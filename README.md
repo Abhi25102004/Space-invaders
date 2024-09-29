@@ -11,7 +11,6 @@ Space Invader Game is a classic arcade-style game where players control a spaces
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Installation](#installation)
-    - [Download](#download)
 
 ## Features
 
@@ -22,7 +21,4 @@ Space Invader Game is a classic arcade-style game where players control a spaces
 
 ## Installation
 
-To try the game you need to clone the repository and use Godot 4
-
-### Download
-[Download the executable for the game](./spaceInvaders.exe) 
+To try the game Check out the Assets section in GitHub
